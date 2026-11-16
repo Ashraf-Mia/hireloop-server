@@ -34,6 +34,14 @@ app.get("/users", async (req, res) => {
   res.send(result);
 });
 
+// jobs related apis
+
+app.post("/jobs", async (req, res) => {
+  const job = req.body;
+  const result = await jobs.insertOne(job);
+  res.send(result);
+});
+
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`);
 });
